@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="678.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.PaymentController">
+   <children>
+      <Button layoutX="33.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleConfirmButton" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #7f8c8d;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="Open Sans Semibold" size="12.0" />
+         </font></Button>
+      <Label layoutX="17.0" layoutY="14.0" text="Checkout">
+         <font>
+            <Font name="ATROX normal" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="134.0" fitWidth="305.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../productPics/card/v.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="108.0" layoutX="156.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../productPics/card/m.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="8.0" layoutY="198.0" prefHeight="5.0" prefWidth="273.0" />
+      <TextField fx:id="cardName" layoutX="33.0" layoutY="216.0" prefHeight="39.0" prefWidth="196.0" promptText="Name on card" />
+      <TextField fx:id="cardNumber" layoutX="33.0" layoutY="267.0" prefHeight="26.0" prefWidth="196.0" promptText="XXXX-XXXX-XXXX-XXXX" />
+      <TextField fx:id="exp" layoutX="33.0" layoutY="307.0" prefHeight="26.0" prefWidth="101.0" promptText="MM/YY" />
+      <TextField fx:id="cvc" layoutX="156.0" layoutY="307.0" prefHeight="26.0" prefWidth="48.0" promptText="CVC" />
+      <Separator layoutX="321.0" layoutY="2.0" orientation="VERTICAL" prefHeight="392.0" prefWidth="3.0" />
+      <TableView fx:id="cartTable" layoutX="328.0" layoutY="22.0" prefHeight="245.0" prefWidth="390.0">
+        <columns>
+          <TableColumn fx:id="itemCol" prefWidth="75.0" text="ITEM" />
+            <TableColumn fx:id="sizeCol" prefWidth="39.0" text="Size" />
+          <TableColumn fx:id="qtyCol" prefWidth="31.0" text="QTY" />
+            <TableColumn fx:id="costCol" prefWidth="73.0" text="PRICE" />
+            <TableColumn fx:id="amountCol" prefWidth="140.0" text="TOTAL" />
+        </columns>
+      </TableView>
+      <Label layoutX="370.0" layoutY="291.0" prefHeight="39.0" prefWidth="108.0" text="sUB TOTAL">
+         <font>
+            <Font name="ATROX normal" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="317.0" prefHeight="39.0" prefWidth="108.0" text="TAXES">
+         <font>
+            <Font name="ATROX normal" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="350.0" prefHeight="39.0" prefWidth="108.0" text="TOTAL">
+         <font>
+            <Font name="ATROX normal" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="493.0" layoutY="291.0" prefHeight="39.0" prefWidth="108.0" text="0.0">
+         <font>
+            <Font name="ATROX normal" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="493.0" layoutY="317.0" prefHeight="39.0" prefWidth="108.0" text="0.0">
+         <font>
+            <Font name="ATROX normal" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalLabel" layoutX="493.0" layoutY="350.0" prefHeight="39.0" prefWidth="108.0" text="00.00">
+         <font>
+            <Font name="ATROX normal" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalid" layoutX="36.0" layoutY="335.0" text="Invalid Card. Please enter valid details" textFill="#ee0000" visible="false" />
+      <ImageView fitHeight="108.0" fitWidth="123.0" layoutX="589.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../productPics/icons/post-purchase-dribbble-animated-400x300.gif" />
+         </image>
+      </ImageView>
+      <Separator layoutX="340.0" layoutY="351.0" prefHeight="5.0" prefWidth="376.0" />
+      <Separator layoutX="338.0" layoutY="290.0" prefHeight="5.0" prefWidth="376.0" />
+   </children>
+</AnchorPane>

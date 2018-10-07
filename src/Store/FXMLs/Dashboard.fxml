@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="734.0" style="-fx-background-color: #d7dcdd;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Store.DashboardController">
+   <children>
+      <Label layoutX="164.0" layoutY="28.0" prefHeight="62.0" prefWidth="422.0" text="Jeff's Fishing Shack" textFill="#727272">
+         <font>
+            <Font name="Couture-Bold" size="32.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="4.0" layoutY="129.0" prefHeight="410.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="transactionTab" text="Transactions">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="purchaseTableView" layoutX="14.0" layoutY="9.0" prefHeight="363.0" prefWidth="422.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="purchaseIDCol" prefWidth="70.0" text="Order ID" />
+                            <TableColumn fx:id="purchaseNameCol" prefWidth="106.0" text="Customer ID" />
+                              <TableColumn fx:id="purchaseDateCol" prefWidth="127.0" text="Date" />
+                              <TableColumn fx:id="purchasePriceCol" prefWidth="118.0" text="Price" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="507.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleViewTransactionButton" prefHeight="28.0" prefWidth="150.0" text="View Current Transaction" />
+                        <TextField fx:id="customerID" alignment="TOP_CENTER" layoutX="507.0" layoutY="94.0" prefHeight="25.0" prefWidth="150.0" promptText="Customer ID" />
+                        <Button fx:id="viewAll" layoutX="507.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleViewAllButton" prefHeight="28.0" prefWidth="150.0" text="View All" />
+                        <DatePicker fx:id="datePicker" editable="false" layoutX="495.0" layoutY="47.0" onAction="#handleDatePicker" promptText="2017/08/31" />
+                        <Button layoutX="507.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleViewReport" prefHeight="28.0" prefWidth="150.0" text="View Report" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="customerTab" text="Customers">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="customerTableView" layoutX="14.0" layoutY="12.0" prefHeight="358.0" prefWidth="490.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="customerIdCol" prefWidth="59.0" text="ID" />
+                            <TableColumn fx:id="customerNameCol" prefWidth="91.0" text="Name" />
+                              <TableColumn fx:id="customerAddCol" prefWidth="115.0" text="Address" />
+                              <TableColumn fx:id="customerUserNameCol" prefWidth="96.0" text="Email" />
+                              <TableColumn fx:id="customerPassCol" prefWidth="115.0" text="Password" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="564.0" layoutY="37.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Add " />
+                        <Button layoutX="564.0" layoutY="118.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #ff4444;" text="Remove" />
+                        <Button layoutX="564.0" layoutY="78.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Update" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="539.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../productPics/icons/graph_318-10306.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="staffTab" closable="false" text="Staffs">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="438.0">
+                     <children>
+                        <TableView fx:id="staffTableView" cache="true" layoutX="14.0" layoutY="10.0" prefHeight="361.0" prefWidth="422.0" tableMenuButtonVisible="true">
+                          <columns>
+                            <TableColumn fx:id="staffIdCol" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="staffUserNameCol" prefWidth="162.0" text="Username" />
+                              <TableColumn fx:id="staffPassCol" prefWidth="174.0" text="Password" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="462.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleStaffAddButton" prefHeight="28.0" prefWidth="99.0" text="Add " />
+                        <Button layoutX="580.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #ff4444;" text="Remove" />
+                        <Button layoutX="512.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleStaffUpdateButton" prefHeight="116.0" prefWidth="139.0" text="Update" />
+                        <TextField fx:id="addUserText" layoutX="462.0" layoutY="73.0" prefHeight="25.0" prefWidth="215.0" promptText="Username" />
+                        <TextField fx:id="addPassText" layoutX="462.0" layoutY="111.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="productsTab" closable="false" text="Products">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="438.0">
+                     <children>
+                        <TableView fx:id="productTableView" layoutX="14.0" layoutY="10.0" prefHeight="361.0" prefWidth="414.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="productIdCol" prefWidth="55.0" text="ID" />
+                              <TableColumn fx:id="productCodeCol" prefWidth="62.0" text="Code" />
+                              <TableColumn fx:id="productNameCol" prefWidth="158.0" text="Name" />
+                              <TableColumn fx:id="productSizeCol" prefWidth="58.0" text="Size" />
+                              <TableColumn fx:id="productPriceCol" prefWidth="71.0" text="Price" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="539.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleProductAddButton" prefHeight="28.0" prefWidth="99.0" text="Add " />
+                        <Button layoutX="588.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleProductDelButton" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #ff4444;" text="Remove" />
+                        <Button layoutX="445.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleProductUpdateButton" prefHeight="28.0" prefWidth="99.0" text="Update" />
+                        <TextField fx:id="productCode" layoutX="523.0" layoutY="178.0" prefHeight="25.0" prefWidth="52.0" promptText="FI####" />
+                        <TextField fx:id="productName" layoutX="523.0" layoutY="143.0" prefHeight="25.0" prefWidth="71.0" promptText="Name" />
+                        <TextField fx:id="productSize" layoutX="523.0" layoutY="215.0" prefHeight="25.0" prefWidth="52.0" promptText="Size (S)" />
+                        <TextField fx:id="productPrice" layoutX="523.0" layoutY="249.0" prefHeight="25.0" prefWidth="52.0" promptText="200.00" />
+                        <Label layoutX="477.0" layoutY="147.0" text="Name" />
+                        <Label layoutX="477.0" layoutY="182.0" text="Code" />
+                        <Label layoutX="477.0" layoutY="219.0" text="Size" />
+                        <Label layoutX="477.0" layoutY="253.0" text="Price" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="usernameLabel" layoutX="586.0" layoutY="16.0" prefHeight="25.0" prefWidth="52.0" text="Admin" />
+      <Hyperlink layoutX="631.0" layoutY="17.0" onAction="#handleHomeButton" text="Logout" />
+      <ImageView fitHeight="120.0" fitWidth="144.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../productPics/icons/111451-business-chart-pictograms.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="33.0" layoutX="546.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../productPics/icons/img_568657.png" />
+         </image>
+      </ImageView>
+  
+   </children>
+</AnchorPane>
